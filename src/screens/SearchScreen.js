@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TextInput, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const hashtags = ['#adventure', '#roadtrip', '#travel', '#vacation', '#nature'];
 const communities = [
@@ -15,6 +16,8 @@ const nomads = [
 
 const SearchScreen = () => {
   return (
+    <SafeAreaView style={{ flex: 1 }}>
+
     <ScrollView style={styles.container}>
       <TextInput style={styles.searchBar} placeholder="Search" />
       <View style={styles.section}>
@@ -54,6 +57,7 @@ const SearchScreen = () => {
         </ScrollView>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 

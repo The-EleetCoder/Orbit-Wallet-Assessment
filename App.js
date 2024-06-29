@@ -7,11 +7,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
+    <SafeAreaProvider>
+
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
@@ -21,6 +24,7 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <Ionicons color={color} size={size} name="home" />
             ),
+            headerShown: false,
           }}
         />
         <Tab.Screen
@@ -30,6 +34,7 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <Ionicons color={color} size={size} name="search" />
             ),
+            headerShown: false,
           }}
         />
         <Tab.Screen
@@ -61,5 +66,6 @@ export default function App() {
         />
       </Tab.Navigator>
     </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

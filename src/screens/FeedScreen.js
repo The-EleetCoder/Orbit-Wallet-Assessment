@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native';
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const FeedScreen = () => {
   const [images, setImages] = useState([]);
@@ -9,7 +17,11 @@ const FeedScreen = () => {
   const fetchImages = async () => {
     const newImages = [];
     for (let i = 0; i < 10; i++) {
-      newImages.push(`https://picsum.photos/${Math.round(width)}/${Math.round(height)}?random=${Math.random()}`);
+      newImages.push(
+        `https://picsum.photos/${Math.round(width)}/${Math.round(
+          height
+        )}?random=${Math.random()}`
+      );
     }
     setImages([...images, ...newImages]);
   };
@@ -32,54 +44,56 @@ const FeedScreen = () => {
   );
 
   return (
-    <FlatList
-      data={images}
-      renderItem={renderItem}
-      keyExtractor={(item, index) => index.toString()}
-      onEndReached={fetchImages}
-      onEndReachedThreshold={0.5}
-      pagingEnabled
-    />
+    <SafeAreaView style={{ flex: 1 }}>
+      <FlatList
+        data={images}
+        renderItem={renderItem}
+        keyExtractor={(index) => index.toString()}
+        onEndReached={fetchImages}
+        onEndReachedThreshold={0.5}
+        pagingEnabled
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   imageContainer: {
     width,
-    height: height-109,
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: height - 53,
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
+    width: "100%",
+    height: "100%",
+    position: "absolute",
   },
   topText: {
-    position: 'absolute',
+    position: "absolute",
     top: 20,
-    textAlign: 'center',
-    width: '100%',
-    color: 'white',
+    textAlign: "center",
+    width: "100%",
+    color: "white",
     fontSize: 18,
   },
   caption: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 40,
-    textAlign: 'center',
-    width: '100%',
-    color: 'white',
+    textAlign: "center",
+    width: "100%",
+    color: "white",
     fontSize: 14,
   },
   iconContainer: {
-    position: 'absolute',
+    position: "absolute",
     right: 20,
     bottom: 100,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     height: 150,
   },
   icon: {
-    color: 'white',
+    color: "white",
     fontSize: 24,
   },
 });
