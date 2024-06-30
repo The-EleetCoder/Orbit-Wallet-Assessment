@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="dark"/>
       <SafeAreaProvider>
         <NavigationContainer>
           <Tab.Navigator
