@@ -38,29 +38,32 @@ export default function App() {
           />
           <Tab.Screen
             name="Create"
-            component={FeedScreen}
+            component={SearchScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <AntDesign name="pluscircleo" color={color} size={size} />
               ),
+              headerShown: false,
             }}
           />
           <Tab.Screen
             name="Community"
-            component={FeedScreen}
+            component={SearchScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <FontAwesome5 name="users" size={size} color={color} />
               ),
+              headerShown: false,
             }}
           />
           <Tab.Screen
             name="Me"
-            component={FeedScreen}
+            component={SearchScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <FontAwesome name="user-circle" size={size} color={color} />
               ),
+              headerShown: false,
             }}
           />
         </Tab.Navigator>
