@@ -110,8 +110,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 100,
     bottom: -5,
-    left: 10,
+    left: 5,
     color: "white",
+    backgroundColor: "#00000043",
+    paddingHorizontal: 5,
+    borderRadius: 5
   },
   sectionTitle: {
     fontSize: 20,
@@ -141,16 +144,22 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 100,
     bottom: -5,
-    left: 10,
+    left: 5,
     color: "white",
+    backgroundColor: "#00000043",
+    paddingHorizontal: 5,
+    borderRadius: 5
   },
   itemPostsText: {
     fontSize: 12,
     position: "absolute",
     zIndex: 100,
     top: 5,
-    right: 10,
-    color: "white",
+    right: 5,
+    color: "#ffffff",
+    backgroundColor: "#0000002d",
+    padding: 2,
+    borderRadius: 5
   },
   itemNameText: {
     fontSize: 26,
