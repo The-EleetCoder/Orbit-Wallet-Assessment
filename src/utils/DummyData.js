@@ -10,7 +10,7 @@ export const communities = [
   {
     name: "FRANCE",
     posts: "123posts/day",
-    image: "https://picsum.photos/200/200?random=6",
+    image: "https://picsum.photos/200/200?random=60",
   },
   {
     name: "ITALY",
@@ -18,7 +18,7 @@ export const communities = [
     image: "https://picsum.photos/200/200?random=7",
   },
   {
-    name: "Spain",
+    name: "SPAIN",
     posts: "50posts/day",
     image: "https://picsum.photos/200/200?random=8",
   },
