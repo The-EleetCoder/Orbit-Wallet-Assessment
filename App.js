@@ -15,7 +15,12 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarStyle: {},
+            tabBarActiveTintColor: "#345f66",
+          }}
+        >
           <Tab.Screen
             name="Home"
             component={FeedScreen}

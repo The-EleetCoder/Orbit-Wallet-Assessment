@@ -68,13 +68,13 @@ const FeedScreen = () => {
 const styles = StyleSheet.create({
   imageContainer: {
     width,
-    height: height - 53,
+    height: height-53,
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
     width: "100%",
-    height: "100%",
+    height: "99.5%",
     position: "absolute",
   },
   topText: {
