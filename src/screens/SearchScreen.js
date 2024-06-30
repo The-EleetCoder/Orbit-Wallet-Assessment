@@ -9,50 +9,7 @@ import {
   FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-const hashtags = [
-  { tag: "#adventure", image: "https://picsum.photos/200/200?random=1" },
-  { tag: "#roadtrip", image: "https://picsum.photos/200/200?random=2" },
-  { tag: "#travel", image: "https://picsum.photos/200/200?random=3" },
-  { tag: "#vacation", image: "https://picsum.photos/200/200?random=4" },
-  { tag: "#nature", image: "https://picsum.photos/200/200?random=5" },
-];
-
-const communities = [
-  {
-    name: "FRANCE",
-    posts: "123posts/day",
-    image: "https://picsum.photos/200/200?random=6",
-  },
-  {
-    name: "ITALY",
-    posts: "75posts/day",
-    image: "https://picsum.photos/200/200?random=7",
-  },
-  {
-    name: "Spain",
-    posts: "50posts/day",
-    image: "https://picsum.photos/200/200?random=8",
-  },
-];
-
-const nomads = [
-  {
-    username: "@playparker",
-    followers: "5K followers",
-    image: "https://picsum.photos/200/200?random=9",
-  },
-  {
-    username: "@mobogan",
-    followers: "3K followers",
-    image: "https://picsum.photos/200/200?random=10",
-  },
-  {
-    username: "@raysjoh",
-    followers: "2K followers",
-    image: "https://picsum.photos/200/200?random=11",
-  },
-];
+import { hashtags, nomads, communities } from "../utils/DummyData";
 
 const SearchScreen = () => {
   return (
@@ -105,8 +62,8 @@ const SearchScreen = () => {
             renderItem={({ item }) => (
               <View style={styles.item}>
                 <Image source={{ uri: item.image }} style={styles.itemLogo} />
-                <Text>{item.username}</Text>
-                <Text>{item.followers}</Text>
+                <Text style={styles.itemUsername}>{item.username}</Text>
+                <Text style={styles.itemFollowers}>{item.followers}</Text>
               </View>
             )}
             keyExtractor={(item, index) => index.toString()}
@@ -144,7 +101,6 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 20,
-    // backgroundColor: '#ff000050',
     position: "relative",
   },
   sectionTopTitle: {
@@ -169,7 +125,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   item: {
-    // backgroundColor: "#f37575",
     marginRight: 20,
     borderRadius: 10,
     alignItems: "center",
@@ -211,7 +166,16 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    // marginRight: 10,
+  },
+  itemUsername: {
+    fontSize: 14,
+    fontWeight: "800",
+    color: "#5A7A7F",
+  },
+  itemFollowers: {
+    fontSize: 14,
+    fontWeight: "400",
+    color: "#5A7A7F",
   },
 });
 
