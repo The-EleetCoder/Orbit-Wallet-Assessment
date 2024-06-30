@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -34,11 +36,18 @@ const FeedScreen = () => {
     <View style={styles.imageContainer}>
       <Image source={{ uri: item }} style={styles.image} />
       <Text style={styles.topText}>For you</Text>
-      <Text style={styles.caption}>Caption</Text>
+      <View style={styles.captionContainer}>
+        <Text style={styles.caption}>Caption</Text>
+        <Text style={styles.caption}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's
+        </Text>
+      </View>
       <View style={styles.iconContainer}>
-        <Text style={styles.icon}>Icon1</Text>
-        <Text style={styles.icon}>Icon2</Text>
-        <Text style={styles.icon}>Icon3</Text>
+        <AntDesign style={styles.icon} name="like1" />
+        <FontAwesome style={styles.icon} name="share" />
+        <FontAwesome style={styles.icon} name="comment" />
+        <AntDesign style={styles.icon} name="download" />
       </View>
     </View>
   );
@@ -50,7 +59,6 @@ const FeedScreen = () => {
         renderItem={renderItem}
         keyExtractor={(index) => index.toString()}
         onEndReached={fetchImages}
-        onEndReachedThreshold={0.5}
         pagingEnabled
       />
     </SafeAreaView>
@@ -77,24 +85,26 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
   },
-  caption: {
+  captionContainer: {
     position: "absolute",
-    bottom: 40,
-    textAlign: "center",
+    bottom: 20,
     width: "100%",
-    color: "white",
-    fontSize: 14,
+    paddingHorizontal: 10,
+  },
+  caption: {
+    fontSize: 13,
+    color: "#d6d6d6b5",
   },
   iconContainer: {
     position: "absolute",
     right: 20,
-    bottom: 100,
+    bottom: 80,
     justifyContent: "space-between",
-    height: 150,
+    height: 200,
   },
   icon: {
     color: "white",
-    fontSize: 24,
+    fontSize: 30,
   },
 });
 
