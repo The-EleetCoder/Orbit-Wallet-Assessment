@@ -20,17 +20,17 @@ const hashtags = [
 
 const communities = [
   {
-    name: "Places of FRANCE",
+    name: "FRANCE",
     posts: "123posts/day",
     image: "https://picsum.photos/200/200?random=6",
   },
   {
-    name: "We live in ITALY",
+    name: "ITALY",
     posts: "75posts/day",
     image: "https://picsum.photos/200/200?random=7",
   },
   {
-    name: "Beautiful Spain",
+    name: "Spain",
     posts: "50posts/day",
     image: "https://picsum.photos/200/200?random=8",
   },
@@ -58,12 +58,12 @@ const SearchScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container}>
-      <Text style={styles.heading}>Discover the world</Text>
+        <Text style={styles.heading}>Discover the world</Text>
         <TextInput style={styles.searchBar} placeholder="Search" />
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Top search of the day</Text>
+          <Text style={styles.sectionTopTitle}>#Top search of the day</Text>
           <Image
-            source={{ uri: "https://picsum.photos/200" }}
+            source={{ uri: "https://picsum.photos/400" }}
             style={styles.topSearchImage}
           />
         </View>
@@ -74,7 +74,7 @@ const SearchScreen = () => {
             renderItem={({ item }) => (
               <View style={styles.item}>
                 <Image source={{ uri: item.image }} style={styles.itemImage} />
-                <Text>{item.tag}</Text>
+                <Text style={styles.itemText}>{item.tag}</Text>
               </View>
             )}
             keyExtractor={(item, index) => index.toString()}
@@ -89,8 +89,8 @@ const SearchScreen = () => {
             renderItem={({ item }) => (
               <View style={styles.item}>
                 <Image source={{ uri: item.image }} style={styles.itemImage} />
-                <Text>{item.name}</Text>
-                <Text>{item.posts}</Text>
+                <Text style={styles.itemNameText}>{item.name}</Text>
+                <Text style={styles.itemPostsText}>{item.posts}</Text>
               </View>
             )}
             keyExtractor={(item, index) => index.toString()}
@@ -104,7 +104,7 @@ const SearchScreen = () => {
             data={nomads}
             renderItem={({ item }) => (
               <View style={styles.item}>
-                <Image source={{ uri: item.image }} style={styles.itemImage} />
+                <Image source={{ uri: item.image }} style={styles.itemLogo} />
                 <Text>{item.username}</Text>
                 <Text>{item.followers}</Text>
               </View>
@@ -123,15 +123,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    paddingHorizontal: 20,
-    paddingTop: 30,
-    backgroundColor: '#EFF2F6'
+    paddingHorizontal: 30,
+    marginTop: 40,
+    backgroundColor: "#EFF2F6",
   },
-  heading:{
-    fontSize: 24,
-    fontWeight: 'bold',
+  heading: {
+    fontSize: 28,
+    fontWeight: "900",
     marginBottom: 10,
-    color: '#5A7A7F'
+    color: "#5A7A7F",
   },
   searchBar: {
     height: 40,
@@ -140,33 +140,78 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     marginBottom: 20,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   section: {
     marginBottom: 20,
+    // backgroundColor: '#ff000050',
+    position: "relative",
+  },
+  sectionTopTitle: {
+    fontSize: 18,
+    fontWeight: "500",
+    marginBottom: 10,
+    position: "absolute",
+    zIndex: 100,
+    bottom: -5,
+    left: 10,
+    color: "white",
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontWeight: "900",
     marginBottom: 10,
+    color: "#5A7A7F",
   },
   topSearchImage: {
     width: "100%",
-    height: 150,
+    height: 200,
     borderRadius: 8,
   },
   item: {
-    backgroundColor: "#f0f0f0",
-    padding: 10,
-    marginRight: 10,
-    borderRadius: 5,
+    // backgroundColor: "#f37575",
+    marginRight: 20,
+    borderRadius: 10,
     alignItems: "center",
   },
   itemImage: {
+    width: 140,
+    height: 130,
+    borderRadius: 10,
+  },
+  itemText: {
+    fontSize: 14,
+    fontWeight: "500",
+    marginBottom: 10,
+    position: "absolute",
+    zIndex: 100,
+    bottom: -5,
+    left: 10,
+    color: "white",
+  },
+  itemPostsText: {
+    fontSize: 12,
+    position: "absolute",
+    zIndex: 100,
+    top: 5,
+    right: 10,
+    color: "white",
+  },
+  itemNameText: {
+    fontSize: 26,
+    fontWeight: "900",
+    marginBottom: 10,
+    position: "absolute",
+    zIndex: 100,
+    bottom: -10,
+    left: 5,
+    color: "#ffffff",
+  },
+  itemLogo: {
     width: 100,
     height: 100,
-    borderRadius: 5,
-    marginBottom: 5,
+    borderRadius: 50,
+    // marginRight: 10,
   },
 });
 
